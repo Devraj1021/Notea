@@ -1,0 +1,320 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Notea</title>
+  <style>
+    * a {
+      text-decoration: none;
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VV8EGC0Q8V"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VV8EGC0Q8V');
+  </script>
+</head>
+
+<body>
+  <!-- Move to up button -->
+  <div class="scroll-button">
+    <a href="#home"><i class="fas fa-arrow-up"></i></a>
+  </div>
+  <!-- navgaition menu -->
+  <nav>
+    <div class="navbar">
+      <div class="logo"><a href="#">Notea.</a></div>
+      <ul class="menu">
+        <li>
+          <div class="container">
+            <div class="searchInputWrapper">
+              <form action="">
+                <input class="searchInput" type="text" name="q" placeholder='type keyword to search'>
+                <button type="submit"> <i class="searchInputIcon fa fa-search" type="submit"
+                    value="submit"></i></button>
+                </input>
+            </div>
+            </form>
+          </div>
+        </li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+        <div class="cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+      </ul>
+      <div class="media-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <!-- Home Section Start -->
+  <section class="home" id="home">
+    <div class="home-content">
+      <div class="text">
+        <div class="text-one"></div>
+        <div class="text-two">Connecting minds,</div>
+        <div class="text-three">Shaping future</div>
+        <div class="text-four">from India</div>
+      </div>
+      <div class="button">
+        <a href="{% url 'h_notes' %}"><button
+            class="btn btn-outline-primary">Explore</button></a>
+        <a href="{% url 'i' %}"><button
+            class="btn btn-outline-primary but">Community</button></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section Start -->
+  <section class="about" id="about">
+    <div class="content">
+      <div class="title"><span>About Us</span></div>
+      <div class="about-details">
+        <div class="left">
+          <img src="{% static 'images/logo.png' %}" alt="">
+        </div>
+        <div class="right">
+          <div class="topic">Unlock Your Potential and Connect with Like-Minded Students - Join Our Community Today!
+          </div>
+          <p>An online community for students from all across the country, providing a platform for learning, sharing
+            experiences and leveraging their knowledge.Building a strong community of students is essential for
+            fostering a supportive and collaborative learning environment. By joining a student community, you can
+            connect with other like-minded individuals who share your interests, passions, and goals. Whether you're
+            looking for academic support, networking opportunities, or simply a place to socialize, a student community
+            can provide you with the resources and support you need to succeed.</p>
+          <div class="button">
+            <a href="{% url 'joinus' %}"> <button class="btn-outline-primary">JOIN
+                US</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- My Services Section Start -->
+  <section class="services" id="services">
+    <div class="content">
+      <div class="title"><span>Our pillars</span></div>
+      <div class="boxes">
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <div class="topic">Students Community</div>
+          <p>By interacting with students from different backgrounds and disciplines, students can gain new insights
+            into different cultures,
+            ways of thinking, and approaches to problem-solving.
+          </p>
+        </div>
+
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <div class="topic">Free Pysical Classes</div>
+          <p>Providing physical classes for needy students is an excellent initiative that can have a significant impact
+            on their education and future opportunities. By using the funds earned from in-app purchases and
+            collaborating with NGOs and volunteers, it is possible to create a sustainable program that addresses the
+            educational needs of disadvantaged students.</p>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <div class="topic">Active Discusion</div>
+          <p>Discusion section is an excellent tool for students, educators, and researchers to engage in meaningful
+            dialogue, share their perspectives, and collaborate on ideas. </p>
+        </div>
+  </section>
+
+  <!-- Contact Me section Start -->
+
+  <div id="map" style="padding:5rem;"></div>
+  <!-- Footer Section Start -->
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYWFkaWxraGFuMDAzIiwiYSI6ImNreG5hMWFnNDF5aHQyd3VicWVrNmIxcGIifQ.kGolIcexYXi4QzWUeVGfLw';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [78.9629, 20.5937],
+    zoom: 4
+  });
+
+  map.on('load', () => {
+    // Add a new source from our GeoJSON data and
+    // set the 'cluster' option to true. GL-JS will
+    // add the point_count property to your source data.
+    map.addSource('earthquakes', {
+      type: 'geojson',
+      // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
+      // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
+      cluster: true,
+      clusterMaxZoom: 14, // Max zoom to cluster points on
+      clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+    });
+
+    map.addLayer({
+      id: 'clusters',
+      type: 'circle',
+      filter: ['has', 'point_count'],
+      paint: {
+        // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+        // with three steps to implement three types of circles:
+        //   * Blue, 20px circles when point count is less than 100
+        //   * Yellow, 30px circles when point count is between 100 and 750
+        //   * Pink, 40px circles when point count is greater than or equal to 750
+        'circle-color': [
+          'step',
+          ['get', 'point_count'],
+          '#51bbd6',
+          100,
+          '#f1f075',
+          750,
+          '#f28cb1'
+        ],
+        'circle-radius': [
+          'step',
+          ['get', 'point_count'],
+          20,
+          100,
+          30,
+          750,
+          40
+        ]
+      }
+    });
+
+    map.addLayer({
+      id: 'cluster-count',
+      type: 'symbol',
+      source: 'earthquakes',
+      filter: ['has', 'point_count'],
+      layout: {
+        'text-field': ['get', 'point_count_abbreviated'],
+        'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+        'text-size': 12
+      }
+    });
+
+    map.addLayer({
+      id: 'unclustered-point',
+      type: 'circle',
+      source: 'earthquakes',
+      filter: ['!', ['has', 'point_count']],
+      paint: {
+        'circle-color': '#11b4da',
+        'circle-radius': 4,
+        'circle-stroke-width': 1,
+        'circle-stroke-color': '#fff'
+      }
+    });
+
+    // inspect a cluster on click
+    map.on('click', 'clusters', (e) => {
+      const features = map.queryRenderedFeatures(e.point, {
+        layers: ['clusters']
+      });
+      const clusterId = features[0].properties.cluster_id;
+      map.getSource('earthquakes').getClusterExpansionZoom(
+        clusterId,
+        (err, zoom) => {
+          if (err) return;
+
+          map.easeTo({
+            center: features[0].geometry.coordinates,
+            zoom: zoom
+          });
+        }
+      );
+    });
+
+    // When a click event occurs on a feature in
+    // the unclustered-point layer, open a popup at
+    // the location of the feature, with
+    // description HTML from its properties.
+    map.on('click', 'unclustered-point', (e) => {
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const mag = e.features[0].properties.mag;
+      const tsunami =
+        e.features[0].properties.tsunami === 1 ? 'yes' : 'no';
+
+      // Ensure that if the map is zoomed out such that
+      // multiple copies of the feature are visible, the
+      // popup appears over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(
+          `magnitude: ${mag}<br>Was there a tsunami?: ${tsunami}`
+        )
+        .addTo(map);
+    });
+
+    const marker1 = new mapboxgl.Marker()
+      .setLngLat([73.833717, 20.019000])
+      .addTo(map);
+    const marker2 = new mapboxgl.Marker()
+      .setLngLat([74.522126, 20.543878])
+      .addTo(map);
+    const marker3 = new mapboxgl.Marker()
+      .setLngLat([72.963357, 20.886640])
+      .addTo(map);
+    const marker4 = new mapboxgl.Marker()
+      .setLngLat([73.716797, 24.534240])
+      .addTo(map);
+    const marker5 = new mapboxgl.Marker()
+      .setLngLat([73.843529, 18.481807])
+      .addTo(map);
+    const marker6 = new mapboxgl.Marker()
+      .setLngLat([75.199036, 17.419893])
+      .addTo(map);
+
+    // Create a default Marker, colored black, rotated 45 degrees.
+
+
+    map.on('mouseenter', 'clusters', () => {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'clusters', () => {
+      map.getCanvas().style.cursor = '';
+    });
+  });
+</script>
+
+</html>
+
+{% endblock %}

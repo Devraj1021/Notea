@@ -1,0 +1,40 @@
+{% extends 'ex.html' %}
+
+{% block content %}
+<div class="container mx-0 mx-sm-auto mt-5">
+        <a href="" style="text-decoration: none; color: white;">
+            <div class="card">
+                <div class="card-header " style="background-color: #4070f4;">
+                    <h5 class="card-title mt-2 " id="exampleModalLabel">Question??</h5>
+                </div>
+                <div class="modal-body">
+                    <div>
+                      <p class="px-0 py-2 ps-3 pt-3" style="color: black;">{{ question.title }}?</p>
+                        <ul>
+                          
+                          <li style="color: black;">
+                            {% for answer in answers %}
+
+                            {{ answer.body }}
+                            <br>
+                            {% endfor %}
+                          </li>   
+
+                        </ul>
+                        <a href="{% url 'answer_question' question.id %}">Answer this question</a>
+                        <!-- Message input -->
+                        <!-- <div class="form-outline mb-4">
+                    <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+                    <label class="form-label" for="form4Example3">Your feedback</label>
+                </div> -->
+                </div>
+                    </div>
+                </div>
+        </a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    
+{% endblock %}
+
